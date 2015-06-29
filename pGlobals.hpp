@@ -39,7 +39,7 @@ namespace panda
 
 typedef struct Pandanimation
 {
-	int duration; // Duration in FRAMES (Framecap at 30 or 60fps highly recommended for the animations ! )
+	float duration; // Duration in FRAMES (Framecap at 30 or 60fps highly recommended for the animations ! )
 	sf::Transformable start; // The start position, just link your object
 	sf::Transformable end; // The End Position, I Advise you to create a new sf::transformable with your object's parameter and edit it :)
 	panda::pAnimation_types animType_Position_X; // Animation type for the specified parameter

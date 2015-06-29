@@ -29,7 +29,7 @@ class Pandanimator
 			if (mAnim.duration == 0)
 				mAnim.duration = 1;
 		}
-		sf::Transformable getTransformFor(int time)
+		sf::Transformable getTransformFor(float time)
 		{
 			////////////
 			if (time < 0)
@@ -52,21 +52,21 @@ class Pandanimator
 		//////////////////////
 		/////////////////////
 		////////////////////
-		int linear_ease(int t,int b,int c, int d)
+		float linear_ease(float t,float b,float c, float d)
 		{
 			return c*t / d + b;
 		}
-		int quadraticIn_ease(int t, int b, int c, int d)
+		float quadraticIn_ease(float t, float b, float c, float d)
 		{
 			t = t/ d;
 			return c*t*t + b;
 		}
-		int quadraticOut_ease(int t, int b, int c, int d)
+		float quadraticOut_ease(float t, float b, float c, float d)
 		{
 			t /= d;
 			return -c * t*(t - 2) + b;
 		}
-		int quadraticInOut_ease(int t, int b, int c, int d)
+		float quadraticInOut_ease(float t, float b, float c, float d)
 		{
 			t /= d / 2;
 			if (t < 1) 
@@ -74,87 +74,87 @@ class Pandanimator
 			t--;
 			return -c / 2 * (t*(t - 2) - 1) + b;
 		}
-		int cubicIn_ease(int t, int b, int c, int d){
+		float cubicIn_ease(float t, float b, float c, float d){
 			t /= d;
 			return c*t*t*t + b;
 		}
-		int cubicOut_ease(int t, int b, int c, int d){
+		float cubicOut_ease(float t, float b, float c, float d){
 			t /= d;
 			t--;
 			return c*(t*t*t + 1) + b;
 		}
-		int cubicInOut_ease(int t, int b, int c, int d){
+		float cubicInOut_ease(float t, float b, float c, float d){
 			t /= d / 2;
 			if (t < 1) return c / 2 * t*t*t + b;
 			t -= 2;
 			return c / 2 * (t*t*t + 2) + b;
 		}
 
-		int quarticIn_ease(int t, int b, int c, int d){
+		float quarticIn_ease(float t, float b, float c, float d){
 			t /= d;
 			return c*t*t*t*t + b;
 		}
-		int quarticOut_ease(int t, int b, int c, int d){
+		float quarticOut_ease(float t, float b, float c, float d){
 			t /= d;
 			t--;
 			return -c * (t*t*t*t - 1) + b;
 		}
-		int quarticInOut_ease(int t, int b, int c, int d){
+		float quarticInOut_ease(float t, float b, float c, float d){
 			t /= d / 2;
 			if (t < 1) return c / 2 * t*t*t*t + b;
 			t -= 2;
 			return -c / 2 * (t*t*t*t - 2) + b;
 		}
 
-		int quinticIn_ease(int t, int b, int c, int d){
+		float quinticIn_ease(float t, float b, float c, float d){
 			t /= d;
 			return c*t*t*t*t*t + b;
 		}
-		int quinticOut_ease(int t, int b, int c, int d){
+		float quinticOut_ease(float t, float b, float c, float d){
 			t /= d;
 			t--;
 			return c*(t*t*t*t*t + 1) + b;
 		}
-		int quinticInOut_ease(int t, int b, int c, int d){
+		float quinticInOut_ease(float t, float b, float c, float d){
 			t /= d / 2;
 			if (t < 1) return c / 2 * t*t*t*t*t + b;
 			t -= 2;
 			return c / 2 * (t*t*t*t*t + 2) + b;
 		}
 
-		int sinusoidalIn_ease(int t, int b, int c, int d){
+		float sinusoidalIn_ease(float t, float b, float c, float d){
 			return -c / 2 * (cos(PI*t / d) - 1) + b;
 		}
-		int sinusoidalOut_ease(int t, int b, int c, int d){
+		float sinusoidalOut_ease(float t, float b, float c, float d){
 			return c * sin(t / d * (PI / 2)) + b;
 		}
-		int sinusoidalInOut_ease(int t, int b, int c, int d){
+		float sinusoidalInOut_ease(float t, float b, float c, float d){
 			return -c / 2 * (cos(PI*t / d) - 1) + b;
 		}
 
-		int exponentialIn_ease(int t, int b, int c, int d){
+		float exponentialIn_ease(float t, float b, float c, float d){
 			return c * pow(2, 10 * (t / d - 1)) + b;
 		}
-		int exponentialOut_ease(int t, int b, int c, int d){
+		float exponentialOut_ease(float t, float b, float c, float d){
 			return c * (-pow(2, -10 * t / d) + 1) + b;
 		}
-		int exponentialInOut_ease(int t, int b, int c, int d){
+		float exponentialInOut_ease(float t, float b, float c, float d){
 			t /= d / 2;
 			if (t < 1) return c / 2 * pow(2, 10 * (t - 1)) + b;
 			t--;
 			return c / 2 * (-pow(2, -10 * t) + 2) + b;
 		}
 
-		int circularIn_ease(int t, int b, int c, int d){
+		float circularIn_ease(float t, float b, float c, float d){
 			t /= d;
 			return -c * (sqrt(1 - t*t) - 1) + b;
 		}
-		int circularOut_ease(int t, int b, int c, int d){
+		float circularOut_ease(float t, float b, float c, float d){
 			t /= d;
 			t--;
 			return c * sqrt(1 - t*t) + b;
 		}
-		int circularInOut_ease(int t, int b, int c, int d){
+		float circularInOut_ease(float t, float b, float c, float d){
 			t /= d / 2;
 			if (t < 1) return -c / 2 * (sqrt(1 - t*t) - 1) + b;
 			t -= 2;
@@ -162,7 +162,7 @@ class Pandanimator
 		}
 
 	private:
-		float getValue(pAnimation_types type, int time, float value_base,float value_change)
+		float getValue(pAnimation_types type, float time, float value_base,float value_change)
 		{
 			float rtr_val;
 			cout << "type" << type << endl;
@@ -249,11 +249,11 @@ class Pandanimator
 			return rtr_val;
 		}
 		Pandanimation mAnim;
-		int change_posx;
-		int change_posy;
-		int change_scalex;
-		int change_scaley;
-		int change_rotation;
+		float change_posx;
+		float change_posy;
+		float change_scalex;
+		float change_scaley;
+		float change_rotation;
 };
 
 #endif
@@ -273,9 +273,9 @@ class Pandanimator
 	Quartic_Out,
 	Quartic_InOut,
 
-	Quintic_In,
-	Quintic_Out,
-	Quintic_InOut,
+	Qufloatic_In,
+	Qufloatic_Out,
+	Qufloatic_InOut,
 
 	Sinusoidal_In,
 	Sinusoidal_Out,
